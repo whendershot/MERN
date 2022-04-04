@@ -1,5 +1,5 @@
 Number.prototype.isPrime = function() {
-        for( let i=2; i<this; i++ ) {
+        for( let i=2, rt = Math.round(Math.sqrt(this)); i<this && i<=rt; i++ ) {
             if( this % i === 0 ) {
                 return false;
             }
