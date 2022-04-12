@@ -10,6 +10,7 @@ function App() {
                 <PersonCard firstName={"Millard"} lastName={"Fillmore"} age={50} hairColor={"Brown"} />
                 <PersonCard firstName={"Maria"} lastName={"Smith"} age={62} hairColor={"Brown"} />
                 <PersonCard firstName={"William"} lastName={"Hendershot"} age={38} hairColor={"Brown"} />
+                <PersonCard firstName={"Tomoko"} lastName={"Hendershot"} age={38} hairColor={"Black"} />
             </div>
         </div>
     );
