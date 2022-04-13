@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import App from './App';
+import MyForm from './components/MyForm';
+import NavigatorBar from './components/general/NavigatorBar';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <NavigatorBar />
+    <MyForm />
   </React.StrictMode>,
   document.getElementById('root')
 );
