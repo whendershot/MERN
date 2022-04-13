@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
+import DisplayForm from './DisplayForm';
+
 const MyForm = (props) => {
 
     const [firstName, setFirstName] = useState("");
@@ -52,14 +54,13 @@ const MyForm = (props) => {
             </Form>
         </Container>
         
-        <Container>
-            <p>First Name: {firstName}</p>
-            <p>Last Name: {lastName}</p>
-            <p>Email: {email}</p>
-            <p>Password: {password}</p>
-            <p>Confirm Password: {confirm}</p>
-</Container>
-        
+        <DisplayForm 
+            firstName={firstName}
+            lastName={lastName}
+            email={email}
+            password={password}
+            confirm={confirm}
+        />
         </>
     );
 };
