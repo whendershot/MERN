@@ -7,5 +7,9 @@ services:
       - "8080:8080"
       - "3000:3000"
     volumes:
-      - .:/code
+      - mern_code:/code
     command: tail -f /dev/null
+
+volumes:
+  mern_code:
+    external: true
