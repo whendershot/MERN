@@ -1,11 +1,15 @@
 version: "3.9"
 
+volumes:
+    mern_code:
+        external: true
+
 services:
-  development:
-    build: .
-    ports:
-      - "8080:8080"
-      - "3000:3000"
-    volumes:
-      - .:/code
-    command: tail -f /dev/null
+    development:
+        build: .
+        ports:
+            - "8080:8080"
+            - "3000:3000"
+        volumes:
+            - mern_code:/code
+        command: tail -f /dev/null
