@@ -4,8 +4,8 @@ const ColorBoxGrid = (props) => {
 
     const makeElement = (color, index) => {
         return (
-            <div className="col">
-                <div key={index} className="box" style={{border: '1px dotted red', backgroundColor: color}}>{color}</div>
+            <div key={index} className="col">
+                <div className="box" style={{backgroundColor: color}}>{color}</div>
             </div>
         );
     };
