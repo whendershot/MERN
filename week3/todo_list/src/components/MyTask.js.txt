@@ -1,0 +1,10 @@
+// import React, { useState } from "react";
+
+// const MyTask = ({ _task, _isCompleted, _onCheckboxChange }) => {
+
+//     const [task, setTask] = useState("");
+//     const [isCompleted, setIsCompleted] = useState(false);
+
+// };
+
+// export default MyTask;
