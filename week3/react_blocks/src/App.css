@@ -1,5 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
 .App {
   text-align: center;
+  background: #dddddd;
 }
 
 .App-logo {
@@ -35,4 +42,29 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.header {
+  background: #6aa84f;
+  border: solid 1px black;
+}
+
+.navigation {
+  background: #6fa8dc;
+  border: solid 1px black;
+}
+
+.main {
+  background: #e06666;
+  border: solid 1px black;
+}
+
+.subcontent {
+  background: #ffd966;
+  border: solid 1px black;
+}
+
+.advertisement {
+  background: #b4a7d6;
+  border: solid 1px black;
 }
