@@ -1,0 +1,19 @@
+{
+    "name": "FakerAPI",
+    "version": "0.1.0",
+    "description": "My first Express server",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no tests are here yet\" && exit 1",
+        "start": "nodemon server.js"
+    },
+    "keywords": [],
+    "author": "William Hendershot",
+    "license": "ISC",
+    "dependencies": {
+        "express": "4.18.1"
+    },
+    "devDependencies": {
+        "@faker-js/faker": "^6.3.1"
+    }
+}
