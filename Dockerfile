@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 RUN apt-get update
 
 #Install dependencies and set timezone
-RUN apt-get install -y curl wget gnupg sudo
+RUN apt-get install -y curl wget gnupg sudo systemctl
 RUN apt-get install -yq tzdata && \
     ln -fs /usr/share/zoneinfo/UTC /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
