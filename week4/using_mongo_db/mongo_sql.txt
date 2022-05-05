@@ -1,0 +1,86 @@
+Create a database called 'my_first_db'.
+use my_first_db
+
+
+Create students collection.
+db.createCollection("students")
+
+
+Each document you insert into this collection should have the following format: ({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
+Create 5 students with the appropriate info.
+db.students.insert({name: "Bill", home_state: "California", lucky_number: 1, birthday: {month: 1, day: 1, year: 1901}}) //depreciated
+db.students.insertOne({name: "Bob", home_state: "California", lucky_number: 3, birthday: {month: 9, day: 18, year: 1983}})
+db.students.insertMany([
+    {name: "Becky", home_state: "California", lucky_number: 8, birthday: {month: 9, day: 17, year: 2020}},
+    {name: "Beth", home_state: "Washington", lucky_number: 11, birthday: {month: 10, day: 11, year: 2012}},
+    {name: "Bliney", home_state: "Washington", lucky_number: 15, birthday: {month: 8, day: 9, year: 2010}}
+    ])
+
+
+Get all students.
+db.students.find()
+
+
+Retrieve all students who are from California (San Jose Dojo) or Washington (Seattle Dojo).
+db.students.find({home_state: "California"})
+db.students.find({home_state: "Washington"})
+
+Get all students whose lucky number is greater than 3
+db.students.find({lucky_number: {$gte: 3}})
+
+
+Get all students whose lucky number is less than or equal to 10
+db.students.find({lucky_number: {$lte: 10}})
+
+Get all students whose lucky number is between 1 and 9 (inclusive)
+db.students.find({lucky_number: {$lte: 9, $gte: 1}})
+
+Add a field named 'interests' to all student documents in the collection. The field should be an array and contain the following entries: 'coding', 'brunch', MongoDB'. Add this field to all documents using a single command.
+db.students.updateMany({}, {$set: {interests: ["coding", "brunch", "MongoDB"]}})
+
+Add some unique interests for each particular student into each of their interest arrays.
+db.students.updateOne({name: "Bill"}, {$push: {interests: "Pizza"}})
+db.students.updateOne({name: "Bob"}, {$push: {interests: "Tacos"}})
+db.students.updateOne({name: "Becky"}, {$push: {interests: "Nachos"}})
+db.students.updateOne({name: "Beth"}, {$push: {interests: "Karage"}})
+db.students.updateOne({name: "Bliney"}, {$push: {interests: "Spaghetti"}})
+
+
+Add the interest 'taxes' into someone's interest array.
+db.students.updateOne({name: "Bill"}, {$push: {interests: "taxes"}})
+
+
+Remove the 'taxes' interest you just added.
+db.students.updateOne({name: "Bill"}, {$pull: {interests: "taxes"}})
+
+
+Remove all students who are from California.
+db.students.drop({home_state: "California"})
+
+
+Remove a student by name.
+db.students.drop({name: "Bill"})
+
+
+Remove a student whose lucky number is greater than 5 (JUST ONE)
+db.students.deleteOne({lucky_number: {$gt: 5}})
+
+
+Add a field to each student collection called 'number_of_belts' and set it to 0.
+db.students.updateMany({}, {$set: {number_of_belts: 0}})
+
+
+Increment this field by 1 for all students in Washington (Seattle Dojo).
+db.students.updateMany({home_state: "Washington"}, {$inc: {number_of_belts: 1}})
+
+
+Rename the 'number_of_belts' field to 'belts_earned'
+db.students.updateMany({}, {$rename: {'number_of_belts': 'belts_earned'}})
+
+
+Remove the 'lucky_number' field.
+db.students.updateMany({}, {$unset: {lucky_number: ''}})
+
+
+Add a 'updated_on' field, and set the value as the current date.
+
