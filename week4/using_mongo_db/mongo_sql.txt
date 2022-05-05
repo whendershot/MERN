@@ -83,4 +83,4 @@ db.students.updateMany({}, {$unset: {lucky_number: ''}})
 
 
 Add a 'updated_on' field, and set the value as the current date.
-
+db.students.updateMany({}, {$set: {updated_at: '2021-05-05'}})
