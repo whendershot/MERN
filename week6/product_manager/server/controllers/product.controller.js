@@ -1,4 +1,4 @@
-const Product = require('../models./product.model');
+const Product = require('../models/product.model');
 
 module.exports.findAll = (req, res) => {
     Product.find()
@@ -12,7 +12,7 @@ module.exports.findAll = (req, res) => {
         });
 };
 
-module.exports.findAll = (req, res) => {
+module.exports.findOne = (req, res) => {
     Product.findOne(
             {
                 _id: req.params.id
