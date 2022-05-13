@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 const ProductList = (props) => {
 
@@ -7,7 +8,7 @@ const ProductList = (props) => {
     const renderOne = (product, index) => {
         return (
             <li key={index}>
-                <a href={`/products/${product._id}`}>{product.title}</a>
+                <Link to={`/products/${product._id}`}>{product.title}</Link>
             </li>
         );
     };

@@ -20,7 +20,7 @@ module.exports.findOne = (req, res) => {
         )
         .then(
             (result) => {
-                res.json({products: result});
+                res.json(result);
             }
         )
         .catch((err) => {
