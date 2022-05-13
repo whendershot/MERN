@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import axios from 'axios';
 
 const AddProductForm = (props) => {
 
@@ -13,7 +12,7 @@ const AddProductForm = (props) => {
         e.preventDefault();
         
         //creation
-        const _newProduct = {
+        const newProduct = {
             "title": title,
             "price": price,
             "description": description
@@ -23,20 +22,7 @@ const AddProductForm = (props) => {
 
 
         //submission
-        //{TODO} Find how to programatically send in the destination server address
-        axios.post(
-            'http://localhost:8080/api/products',
-            _newProduct
-        ).then(
-            (res) => {
-                console.log(res);
-                console.log(res.data);
-            }
-        ).catch(
-            (err) => {
-                console.log(err);
-            }
-        );
+        props.addProduct(newProduct);
 
         //cleanup
         e.target.product_title.value = "";

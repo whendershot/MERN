@@ -1,21 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useEffect} from 'react';
 
 const ProductList = (props) => {
 
-    const [products, setProducts] = useState([]);
-
-    useEffect(
-        () => {
-            axios
-                .get('http://localhost:8080/api/products')
-                .then(
-                    (res) => {
-                        setProducts(res.data.products);
-                    }
-                )
-        }
-    , []);
+    //useEffect(() => {}, [products]);
 
     const renderOne = (product, index) => {
         return (
@@ -27,9 +14,9 @@ const ProductList = (props) => {
 
     return (
         <div className="container">
-            <h1 className="text-center row">All Products</h1>
+            <h1 className="text-center">All Products</h1>
             <ul className="row">
-                { products.map( (product, index) => renderOne(product, index) ) }
+                { props.products.map( (product, index) => renderOne(product, index) ) }
             </ul>
         </div>
     );

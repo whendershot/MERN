@@ -32,7 +32,7 @@ module.exports.create = (req, res) => {
     Product.create(req.body)
         .then(
             (result) => {
-                res.json({product: result});
+                res.json(result);
             }
         )
         .catch(
@@ -55,7 +55,7 @@ module.exports.updateById = (req, res) => {
         )
         .then(
             (result) => {
-                res.json({product: result});
+                res.json(result);
             }
         )
         .catch((err) => {

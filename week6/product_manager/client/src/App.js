@@ -1,14 +1,17 @@
-import AddProductForm from './components/products/product.createOne';
-import ProductList from './components/products/product.list';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
+import ProductsMainView from './views/Products.main';
 
 import './App.css';
 
 function App() {
   return (
     <>
-      <AddProductForm />
-      <div className="divider"></div>
-      <ProductList />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<ProductsMainView/>} path="/products" />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
