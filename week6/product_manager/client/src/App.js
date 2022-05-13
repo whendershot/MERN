@@ -1,9 +1,15 @@
-import AddProductForm from './components/products/product.form';
+import AddProductForm from './components/products/product.createOne';
+import ProductList from './components/products/product.list';
+
 import './App.css';
 
 function App() {
   return (
-    <AddProductForm />
+    <>
+      <AddProductForm />
+      <div className="divider"></div>
+      <ProductList />
+    </>
   );
 }
 

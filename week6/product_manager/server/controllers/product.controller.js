@@ -4,7 +4,7 @@ module.exports.findAll = (req, res) => {
     Product.find()
         .then(
             (result) => {
-                res.json({result: result});
+                res.json({products: result});
             }
         )
         .catch((err) => {
@@ -20,7 +20,7 @@ module.exports.findOne = (req, res) => {
         )
         .then(
             (result) => {
-                res.json({result: result});
+                res.json({products: result});
             }
         )
         .catch((err) => {
@@ -32,7 +32,7 @@ module.exports.create = (req, res) => {
     Product.create(req.body)
         .then(
             (result) => {
-                res.json({result: result});
+                res.json({product: result});
             }
         )
         .catch(
@@ -55,7 +55,7 @@ module.exports.updateById = (req, res) => {
         )
         .then(
             (result) => {
-                res.json({result: result});
+                res.json({product: result});
             }
         )
         .catch((err) => {
