@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import axios from 'axios';
 
 import ProductShowOne from '../components/products/product.details';
@@ -20,6 +20,7 @@ const ProductDetailsView = (props) => {
     return (
         <>
             <ProductShowOne product={product} />
+            <Link to={"/products/" + id + "/edit"}>edit</Link>
         </>
     );
 };
