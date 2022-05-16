@@ -1,5 +1,5 @@
 import React, {useState, useLayoutEffect}from 'react';
-import {useParams, useNavigate} from 'react-router-dom';
+import {useParams, useNavigate, Link} from 'react-router-dom';
 import axios from 'axios';
 
 const ProductEditOne = (props) => {
@@ -37,6 +37,23 @@ const ProductEditOne = (props) => {
         //submission
         editProduct(_product);
 
+    };
+
+    const deleteProduct = (e) => {
+        e.preventDefault();
+        axios
+            .delete('http://localhost:8080/api/products/' + id)
+            .then(
+                (response) => {
+                    console.log(response);
+                    navigate("/products/");
+                }
+            )
+            .catch(
+                (err) => {
+                    console.log(err);
+                }
+            )
     };
 
     const editProduct = (product) => {
@@ -95,6 +112,9 @@ const ProductEditOne = (props) => {
                 <div className="row">
                     <div className="col-sm-2">
                         <button className="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                    <div>
+                        <button className="btn btn-warning" onClick={ (e) => deleteProduct(e) }>Delete</button>
                     </div>
                 </div>
             </form>

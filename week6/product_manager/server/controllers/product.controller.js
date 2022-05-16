@@ -64,7 +64,7 @@ module.exports.updateById = (req, res) => {
 };
 
 module.exports.deleteById = (req, res) => {
-    Product.deletOne(
+    Product.deleteOne(
             {
                 _id: req.params.id,
             }
