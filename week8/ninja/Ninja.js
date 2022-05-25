@@ -18,3 +18,5 @@ class Ninja {
         this.health += 10;
     }
 }
+
+module.exports = Ninja;
