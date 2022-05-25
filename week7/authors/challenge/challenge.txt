@@ -15,5 +15,10 @@ BONUS: Sort the authors alphabetically.
 
 NOTE: The URLs in the wireframe below show port 8000, but this should be port 3000 when using React for the frontend
 
+Create a page to show the list of all authors
 
+Create a page to add a new author, which redirects back to the list page upon successful creation
 
+When you delete an author, they should automatically disappear without a page refresh
+
+By default, all validations should come from the backend server
