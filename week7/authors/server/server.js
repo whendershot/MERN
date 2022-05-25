@@ -1,6 +1,6 @@
 require("./config/mongoose.config");
 
-const API_SERVER_PORT = 8000;
+const API_SERVER_PORT = 8080;
 
 const express = require("express");
 const cors = require("cors");
