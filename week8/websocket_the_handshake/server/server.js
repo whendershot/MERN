@@ -29,13 +29,28 @@ const io = socket(
 io.on(
     "connection",
     (socket) => {
-        console.log(`Someone has opened a socket: ${socket}`);
+        console.log(`Someone has opened a socket: ${socket.id}`);
 
-        socket.on(
-            "event_from_client",
+        socket.emit(
+            "Welcome",
             (data) => {
-                socket.broadcast.emit("event_to_all_other_clients", data);
+                return {myMessage: `Welcome to the bone zone ${socket.id}!`, data: data};
             }
         );
+
+        socket.broadcast.emit(
+            "Welcome",
+            (data) => {
+                return {myMesage: `Please welcome ${socket.id} to the zone!`, data: data}
+            }
+        );
+
+        socket.on(
+            "Welcome",
+            (data) => {
+                socket.broadcast.emit("Welcome", data);
+            }
+        );
+
     }
 );
