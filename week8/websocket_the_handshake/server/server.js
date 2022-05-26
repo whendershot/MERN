@@ -32,23 +32,19 @@ io.on(
         console.log(`Someone has opened a socket: ${socket.id}`);
 
         socket.emit(
-            "Welcome",
-            (data) => {
-                return {myMessage: `Welcome to the bone zone ${socket.id}!`, data: data};
-            }
+            "welcome",
+            {myMessage: `Welcome to the bone zone ${socket.id}!`}
         );
 
         socket.broadcast.emit(
-            "Welcome",
-            (data) => {
-                return {myMesage: `Please welcome ${socket.id} to the zone!`, data: data}
-            }
+            "welcome",
+            {myMesage: `Please welcome ${socket.id} to the zone!`}
         );
 
         socket.on(
-            "Welcome",
+            "welcome_respond",
             (data) => {
-                socket.broadcast.emit("Welcome", data);
+                socket.broadcast.emit("welcome_respond", data);
             }
         );
 

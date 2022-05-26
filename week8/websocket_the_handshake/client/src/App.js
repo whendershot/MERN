@@ -11,12 +11,25 @@ function App() {
   useEffect(
     () => {
       console.log("Starting up a socket connection.");
+      
       socket.on(
-        "Welcome",
+        "welcome",
         (data) => {
-          return console.log(data);
+          console.log(data);
+          socket.emit(
+            "welcome_respond",
+            {myMessage: "Thank you for having me!", myPort: socket.id}
+          );
         }
       );
+
+      socket.on(
+        "welcome_respond",
+        (data) => {
+          console.log(data);
+        }
+      );
+
       return () => socket.disconnect(true);
     },
     []
