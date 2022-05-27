@@ -5,7 +5,7 @@ class BankAccount {
     }
 
     deposit(amount) {
-        this._balance += amount;
+        amount > 0 ? this._balance += amount : null;
         return this;
     };
 
@@ -22,7 +22,7 @@ class BankAccount {
     };
 
     displayAccountInfo() {
-        console.log(`Balance: $${this._balance}`);
+        console.log(this.toString());
         return this;
     };
 
@@ -31,6 +31,10 @@ class BankAccount {
             this._balance = (1 + this._intRate) * this._balance;
         }
         return this;
+    };
+
+    toString () {
+        return `Balance: $${this._balance}`
     };
 };
 

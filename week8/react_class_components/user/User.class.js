@@ -1,29 +1,36 @@
+const BankAccount = require("../bankAccount/BankAccount.class");
+
 class User{
-    constructor(name) {
+    constructor(name, accounts) {
         this._name = name;
-        this._accountBalance = 0;
+        this._accounts = accounts ? accounts : [new BankAccount()];
     };
 
-    makeDeposit(amount) {
-        this._accountBalance += amount;
+    makeDeposit(amount, accountId) {
+        this._accounts[(accountId || 0)].deposit(amount);
         return this;
     };
 
-    makeWithdrawal(amount) {
-        this._accountBalance -= amount;
+    makeWithdrawal(amount, accountId) {
+        this._accounts[(accountId || 0)].withdraw(amount);
         return this;
     };
 
     displayBalance() {
-        console.log(`User: ${this._name}, Balance: $${this._accountBalance}`);
+        console.log(`User: ${this._name}, Balances:`);
+        this._accounts.map((account)=>account.displayAccountInfo());
         return this;
     };
 
-    transferMoney(otherUser, amount) {
-        this.makeWithdrawal(amount);
-        otherUser.makeDeposit(amount);
+    transferMoney(otherUser, amount, fromAccountId, toAccountId) {
+        this.makeWithdrawal(amount, fromAccountId);
+        otherUser.makeDeposit(amount, toAccountId);
         return this;
     };
+
+    openAccount(intRate, initialBalance) {
+        this._accounts.push
+    }
 };
 
 module.exports = User;

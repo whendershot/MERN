@@ -1,0 +1,35 @@
+Assignment: Users with Bank Accounts
+Objectives:
+Practice writing classes with associations
+Update your existing User class to have an association with the BankAccount class. You should not have to change anything in the BankAccount class; however the User methods will need to be updated.
+
+For example, our User class currently has a method like this:
+
+class User {
+    // constructor method here....
+    makeDeposit(amount) {
+    	this.accountBalance += amount;	// hmmm...the User class doesn't have an accountBalance attribute anymore
+    }
+}
+copy
+But our User class no longer has a this.accountBalance attribute. Instead, we have replaced this with an instance of a BankAccount by the name of this.account. That means our make_deposit (and other methods referencing self.account_balance in the User class) need to be updated! That's the goal of this assignment.
+
+Remember in our User methods, we can now access the BankAccount class through our this.account attribute, like so:
+
+class User {
+    // constructor method here...
+    exampleMethod() {
+        this.account.deposit(100);		// we can call the BankAccount instance's methods
+    	console.log(this.account.balance);	// or access its attributes
+    }
+}
+copy
+Update the User constructor method
+
+Update the User class makeDeposit method
+
+Update the User class makeWithdrawal method
+
+Update the User class displayUserBalance method
+
+SENSEI BONUS: Allow a user to have multiple accounts; update methods so the user has to specify which account they are withdrawing or depositing to
